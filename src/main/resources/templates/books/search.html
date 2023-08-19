@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search result</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/books/find}">
+    <label for="searchKey">Enter search request: </label>
+    <input type="text" name="key" id="searchKey"/>
+    <br/>
+    <input type="submit" value="Search!">
+</form>
+<div th:if="${books}">
+    <div th:if="${books.isEmpty()}">
+        <p style="color: red">No books found</p>
+    </div>
+    <div th:unless="${books.isEmpty()}">
+        <div th:each="book : ${books}">
+            <p>
+                <a th:href="@{/books/{id}(id=${book.getBookId()})}"
+                   th:text="${book.getTitle() + ', ' + book.getAuthor() + ', ' + book.getAgeOfPublishment()}">book</a>
+            <div th:if="${book.getOwner() != null}">
+                <span th:text="${'Current reader is:'}"></span>
+                <a th:href="@{/people/{id}(id=${book.getOwner().getPersonId()})}"
+                   th:text="${book.getOwner().getFullName()}">user</a>
+            </div>
+
+            <div th:unless="${book.getOwner() != null}">
+                <p>Book is available.</p>
+            </div>
+            </p>
+        </div>
+    </div>
+</div>
+<hr/>
+
+<form action="/">
+    <input type="submit" value="Back to start"/>
+</form>
+</body>
+</html>
