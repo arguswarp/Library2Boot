@@ -1,11 +1,12 @@
-package com.argus.alishevspring.Library2Boot.services;
+package com.argus.alishevspring.Library2Boot.service;
 
 
-import com.argus.alishevspring.Library2Boot.models.Book;
-import com.argus.alishevspring.Library2Boot.models.Person;
-import com.argus.alishevspring.Library2Boot.repositories.PeopleRepository;
+import com.argus.alishevspring.Library2Boot.model.Book;
+import com.argus.alishevspring.Library2Boot.model.Person;
+import com.argus.alishevspring.Library2Boot.repository.PeopleRepository;
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,7 +18,8 @@ import java.util.Optional;
 @Service
 @Transactional(readOnly = true)
 public class PeopleService {
-    private static final long ASSIGN_TIME = 864000000;
+    @Value("${people.service.assigntime}")
+    private long assignTime;
     private final PeopleRepository peopleRepository;
     @Autowired
     public PeopleService(PeopleRepository peopleRepository) {
@@ -57,7 +59,7 @@ public class PeopleService {
             List<Book> books = person.get().getBooks();
             Hibernate.initialize(books);
             books.forEach(book -> {
-                if (Math.abs(book.getAssignedAt().getTime() - Instant.now().toEpochMilli()) > ASSIGN_TIME) {
+                if (Math.abs(book.getAssignedAt().getTime() - Instant.now().toEpochMilli()) > assignTime) {
                     book.setOverdue(true);
                 }
             });

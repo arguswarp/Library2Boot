@@ -1,10 +1,10 @@
-package com.argus.alishevspring.Library2Boot.controllers;
+package com.argus.alishevspring.Library2Boot.controller;
 
 
-import com.argus.alishevspring.Library2Boot.models.Book;
-import com.argus.alishevspring.Library2Boot.models.Person;
-import com.argus.alishevspring.Library2Boot.services.BooksService;
-import com.argus.alishevspring.Library2Boot.services.PeopleService;
+import com.argus.alishevspring.Library2Boot.model.Book;
+import com.argus.alishevspring.Library2Boot.model.Person;
+import com.argus.alishevspring.Library2Boot.service.BooksService;
+import com.argus.alishevspring.Library2Boot.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

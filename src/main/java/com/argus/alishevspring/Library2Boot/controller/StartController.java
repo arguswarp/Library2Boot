@@ -1,4 +1,4 @@
-package com.argus.alishevspring.Library2Boot.controllers;
+package com.argus.alishevspring.Library2Boot.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

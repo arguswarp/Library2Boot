@@ -1,8 +1,8 @@
 package com.argus.alishevspring.Library2Boot.util;
 
 
-import com.argus.alishevspring.Library2Boot.models.Person;
-import com.argus.alishevspring.Library2Boot.services.PeopleService;
+import com.argus.alishevspring.Library2Boot.model.Person;
+import com.argus.alishevspring.Library2Boot.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

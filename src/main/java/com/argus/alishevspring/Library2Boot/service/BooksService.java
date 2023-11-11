@@ -1,9 +1,9 @@
-package com.argus.alishevspring.Library2Boot.services;
+package com.argus.alishevspring.Library2Boot.service;
 
 
-import com.argus.alishevspring.Library2Boot.models.Book;
-import com.argus.alishevspring.Library2Boot.models.Person;
-import com.argus.alishevspring.Library2Boot.repositories.BooksRepository;
+import com.argus.alishevspring.Library2Boot.model.Book;
+import com.argus.alishevspring.Library2Boot.model.Person;
+import com.argus.alishevspring.Library2Boot.repository.BooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
